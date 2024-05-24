@@ -15,7 +15,7 @@ public class main_view {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("ojan");
+        System.out.println("rafi");
     }
     
 }

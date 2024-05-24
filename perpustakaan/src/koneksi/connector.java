@@ -15,7 +15,7 @@ public class connector {
     public static Connection connection(){
         if(con==null){
             MysqlDataSource data = new MysqlDataSource();
-            data.setDatabaseName("movie_db");
+            data.setDatabaseName("perpustakaan");
             data.setUser("root");
             data.setPassword("");
             try{

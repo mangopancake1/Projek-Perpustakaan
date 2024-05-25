@@ -20,23 +20,31 @@ public class menu extends JFrame{
     }
     private JButton pinjam, kembali, tambah;
     
+    
     private void initComponents() {
-        JPanel panel = new JPanel(new GridLayout(3, 1));
+       
+        
         pinjam = new JButton("Peminjaman");
-        panel.add(pinjam);
+        add(pinjam);
+        pinjam.setBounds(40, 100, 200, 30);
+        pinjam.setFont(new Font("Arial", Font.ITALIC, 15));
 
-        kembali = new JButton("Pengembali");
-        panel.add(kembali);
+        kembali = new JButton("Pengembalian");
+        add(kembali);
+        kembali.setBounds(40, 100, 200, 30);
+        
 
         tambah = new JButton("Tambah Buku Baru");
-        panel.add(tambah);
+        add(tambah);
+        tambah.setBounds(40, 100, 200, 30);
         
-        add(panel);
         
-        setTitle("Perpustakaan");
-        setSize(800, 600);
+        setVisible(true);
+        setLayout(null);
+        setSize(560, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setVisible(true);
+        setTitle("Perpustakaan");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

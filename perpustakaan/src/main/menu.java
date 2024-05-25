@@ -6,8 +6,6 @@ package main;
 import javax.swing.*;
 import java.awt.*;
 import controller.dataController;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 /**
  *
  * @author ASUS
@@ -22,29 +20,31 @@ public class menu extends JFrame{
     
     
     private void initComponents() {
-       
-        
+       JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(150, 200, 50, 200));
         pinjam = new JButton("Peminjaman");
-        add(pinjam);
-        pinjam.setBounds(40, 100, 200, 30);
-        pinjam.setFont(new Font("Arial", Font.ITALIC, 15));
+        pinjam.setPreferredSize(new Dimension(200, 50));
+        panel.add(pinjam);
+        
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         kembali = new JButton("Pengembalian");
-        add(kembali);
-        kembali.setBounds(40, 100, 200, 30);
+        kembali.setPreferredSize(new Dimension(200, 50));
+        panel.add(kembali);
         
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         tambah = new JButton("Tambah Buku Baru");
-        add(tambah);
-        tambah.setBounds(40, 100, 200, 30);
-        
-        
+        tambah.setPreferredSize(new Dimension(200, 50));
+        panel.add(tambah);
+        add(panel, BorderLayout.CENTER);
+
         setVisible(true);
-        setLayout(null);
         setSize(560, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Perpustakaan");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 }

@@ -6,6 +6,8 @@ package main;
 import javax.swing.*;
 import java.awt.*;
 import controller.dataController;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author ASUS
@@ -19,7 +21,7 @@ public class menu extends JFrame{
     private JButton pinjam, kembali, tambah;
     
     private void initComponents() {
-        JPanel panel = new JPanel(new GridLayout(5, 1, 5, 5));
+        JPanel panel = new JPanel(new GridLayout(3, 1));
         pinjam = new JButton("Peminjaman");
         panel.add(pinjam);
 
@@ -28,6 +30,8 @@ public class menu extends JFrame{
 
         tambah = new JButton("Tambah Buku Baru");
         panel.add(tambah);
+        
+        add(panel);
         
         setTitle("Perpustakaan");
         setSize(800, 600);

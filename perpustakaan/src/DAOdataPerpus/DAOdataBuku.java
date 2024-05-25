@@ -42,7 +42,24 @@ public class DAOdataBuku implements DAOBuku{
 
     @Override
     public List<dataBuku>getALL() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<dataBuku> dp = null;
+        try{
+            dp = new ArrayList<dataBuku>();
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(select);
+            while(rs.next()){
+                dataBuku buku = new dataBuku();
+                buku.setJudul(rs.getString("judul"));
+                buku.setPenerbit(rs.getString("Penerbit"));
+                buku.setPeulis(rs.getString("penulis"));
+                buku.setTahun(rs.getInt("tahun"));
+                buku.setKategori(rs.getString("kategori"));
+                dp.add(buku);
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(DAOdataBuku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dp;
     }
     
 }

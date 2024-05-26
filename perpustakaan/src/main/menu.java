@@ -16,15 +16,9 @@ import Tambah.Tambahdata;
  * @author ASUS
  */
 public class menu extends JFrame{
-    dataController dc;
-    public menu(){
-        initComponents();
-        dc = new dataController(this);
-    }
+    
     private JButton pinjam, kembali, tambah;
-    
-    
-    private void initComponents() {
+    public menu() {
        JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(150, 200, 50, 200));

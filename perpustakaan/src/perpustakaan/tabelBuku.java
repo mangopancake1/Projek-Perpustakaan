@@ -23,10 +23,41 @@ public class tabelBuku extends AbstractTableModel{
     public int getColumnCount() {
         return 5;
     }
+    
+    @Override
+    public String getColumnName(int column){
+        switch (column){
+            case 0:
+                return "Judul";
+            case 1:
+                return "Penerbit";
+            case 2:
+                return "Penulis";
+            case 3:
+                return "Tahun";
+            case 4:
+                return "Kategori";
+            default:
+                return null;
+        }
+    }
 
     @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Object getValueAt(int row, int column) {
+        switch (column){
+            case 0:
+                return dp.get(row).getJudul();
+            case 1:
+                return dp.get(row).getPenerbit();
+            case 2:
+                return dp.get(row).getPenulis();
+            case 3:
+                return dp.get(row).getTahun();
+            case 4:
+                return dp.get(row).getKategori();
+            default:
+                return null;
+        }
     }
     
 }

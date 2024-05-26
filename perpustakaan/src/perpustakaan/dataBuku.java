@@ -12,7 +12,7 @@ public class dataBuku {
     private int id;
     private String judul;
     private String penerbit;
-    private String peulis;
+    private String penulis;
     private int tahun;
     private String kategori;
 
@@ -40,12 +40,12 @@ public class dataBuku {
         this.penerbit = penerbit;
     }
 
-    public String getPeulis() {
-        return peulis;
+    public String getPenulis() {
+        return penulis;
     }
 
-    public void setPeulis(String peulis) {
-        this.peulis = peulis;
+    public void setPenulis(String peulis) {
+        this.penulis = peulis;
     }
 
     public int getTahun() {

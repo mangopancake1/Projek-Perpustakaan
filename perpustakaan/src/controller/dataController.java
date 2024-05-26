@@ -7,19 +7,28 @@ import java.util.List;
 import DAOdataPerpus.DAOdataBuku;
 import DAOImplements.DAOBuku;
 import perpustakaan.*;
-import main.*;
+import Peminjaman.Peminjaman;
 /**
  *
  * @author ASUS
  */
 public class dataController {
-    menu frame;
+    Peminjaman frame;
     DAOBuku impldataBuku;
     List<dataBuku>dp;
-    public dataController(menu frame){
+    public dataController(Peminjaman frame){
         this.frame = frame;
         impldataBuku = new DAOdataBuku();
         dp = impldataBuku.getALL();
     }
-    
+    public void isitable(){
+        dp = impldataBuku.getALL();
+        tabelBuku mp = new tabelBuku(dp);
+        frame.getBukuTable().setModel(mp);
+    }
+    public void delete() {
+        dataBuku dp = new dataBuku();
+        dp.setJudul(frame.getJudul());
+        impldataBuku.delete(dp);
+    }
 }

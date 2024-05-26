@@ -16,8 +16,9 @@ import perpustakaan.*;
  */
 public class DAOPinjam implements DAOImPinjam{
     Connection connection;
-    final String select = "SELECT * FROM peminjaman";
+    final String select = "SELECT * FROM data_buku";
     final String create = "INSERT INTO peminjaman (nama, nomor, judul, penerbit, penulis, tahun, kategori) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    final String delete = "DELETE FROM data_buku WHERE judul=?";
     public DAOPinjam(){
         connection = connector.connection();
     }
@@ -49,6 +50,25 @@ public class DAOPinjam implements DAOImPinjam{
             }
         }
     }
+
+    @Override
+    public void delete(dataBuku p) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(delete);
+            statement.setString(1, p.getJudul());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    
     @Override
     public List<dataBuku>getALL() {
         List<dataBuku> dp = null;

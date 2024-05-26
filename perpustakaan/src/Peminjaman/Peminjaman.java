@@ -8,19 +8,16 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import controller.dataController;
 /**
  *
  * @author ASUS
  */
 public class Peminjaman extends JFrame{
-    dataController dc;
     controllerPinjam cp;
     public Peminjaman(){
         initComponents();
         cp = new controllerPinjam(this);
-        dc = new dataController(this);
-        dc.isitable();
+        cp.isitable();
     }
     
     private JTextField nama, nomor,judul, penerbit, penulis, tahun, kategori;
@@ -107,11 +104,11 @@ public class Peminjaman extends JFrame{
     }
     private void save() {
         cp.save();
-        dc.isitable();
+        cp.isitable();
     }
     private void delete() {
-        dc.delete();
-        dc.isitable();
+        cp.delete();
+        cp.isitable();
     }
     
     private void tabelDataBukuMouseClicked(java.awt.event.ActionEvent evt){
@@ -152,3 +149,5 @@ public class Peminjaman extends JFrame{
         return kategori.getText();
     }
 }
+
+    

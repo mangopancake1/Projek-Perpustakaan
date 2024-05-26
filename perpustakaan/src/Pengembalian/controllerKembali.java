@@ -2,41 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Peminjaman;
+package Pengembalian;
 import java.util.List;
 import perpustakaan.*;
+import Peminjaman.Peminjaman;
 /**
  *
  * @author ASUS
  */
-public class controllerPinjam {
-    Peminjaman frame;
-    DAOImPinjam ImPinjam;
+public class controllerKembali {
+    Kembali frame;
+    DAOImKembali ImKembali;
     List<dataBuku> dp;
-    public controllerPinjam(Peminjaman frame){
+    public controllerKembali(Kembali frame){
         this.frame = frame;
-        ImPinjam = new DAOPinjam();
-        dp = ImPinjam.getALL();
+        ImKembali = new DAOKembali();
+        dp = ImKembali.getALL();
     }
-    public void save(){
+    public void create(){
         dataBuku dp = new dataBuku();
-        dp.setNama(frame.getNama());
-        dp.setNomor(Integer.parseInt(frame.getNomor()));
         dp.setJudul(frame.getJudul());
         dp.setPenerbit(frame.getPenerbit());
         dp.setPenulis(frame.getPenulis());
         dp.setTahun(Integer.parseInt(frame.getTahun()));
         dp.setKategori(frame.getKategori());
-        ImPinjam.save(dp);
+        ImKembali.hapus(dp);
     }
-    public void delete() {
+    public void hapus() {
         dataBuku dp = new dataBuku();
         dp.setJudul(frame.getJudul());
-        ImPinjam.delete(dp);
+        ImKembali.hapus(dp);
     }
     public void isitable(){
-        dp = ImPinjam.getALL();
-        tabelBuku mp = new tabelBuku(dp);
-        frame.getBukuTable().setModel(mp);
+        dp = ImKembali.getALL();
+        tabelPinjam mp = new tabelPinjam(dp);
+        frame.getBukuPinjam().setModel(mp);
     }
 }

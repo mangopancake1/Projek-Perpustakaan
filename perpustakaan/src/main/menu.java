@@ -21,6 +21,7 @@ public class menu extends JFrame{
     public menu() {
        JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
         panel.setBorder(BorderFactory.createEmptyBorder(150, 200, 50, 200));
         
         pinjam = new JButton("Peminjaman");
@@ -59,7 +60,7 @@ public class menu extends JFrame{
         add(panel, BorderLayout.CENTER);
 
         setVisible(true);
-        setSize(560, 600);
+        setSize(700, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Perpustakaan");      
@@ -67,16 +68,16 @@ public class menu extends JFrame{
     private void openPinjam() {
         JFrame Peminjaman = new Peminjaman();
         Peminjaman.setVisible(true);
-        this.dispose(); // Close the current window
+        this.dispose();
     }
     private void openKembali() {
         JFrame Kembali = new Kembali();
         Kembali.setVisible(true);
-        this.dispose(); // Close the current window
+        this.dispose(); 
     }
     private void openTambah() {
         JFrame Tambahdata = new Tambahdata();
         Tambahdata.setVisible(true);
-        this.dispose(); // Close the current window
+        this.dispose();
     }
 }

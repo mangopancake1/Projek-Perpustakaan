@@ -17,5 +17,4 @@ public class main_view {
         p.setVisible(true);
         p.setLocationRelativeTo(null);
     }
-    
 }

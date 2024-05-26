@@ -15,8 +15,10 @@ import controller.dataController;
  */
 public class Peminjaman extends JFrame{
     dataController dc;
+    controllerPinjam cp;
     public Peminjaman(){
         initComponents();
+        cp = new controllerPinjam(this);
         dc = new dataController(this);
         dc.isitable();
     }
@@ -89,6 +91,7 @@ public class Peminjaman extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 delete();
+                save();
             }
         });
         
@@ -101,6 +104,10 @@ public class Peminjaman extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+    private void save() {
+        cp.save();
+        dc.isitable();
     }
     private void delete() {
         dc.delete();
@@ -126,7 +133,7 @@ public class Peminjaman extends JFrame{
     public String getNama() {
         return nama.getText();
     }
-    public String getomor() {
+    public String getNomor() {
         return nomor.getText();
     }
     public String getJudul() {

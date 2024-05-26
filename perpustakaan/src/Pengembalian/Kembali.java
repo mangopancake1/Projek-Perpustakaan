@@ -12,7 +12,7 @@ import java.awt.*;
  */
 public class Kembali extends JFrame{
     public Kembali() {
-        setTitle("Peminjaman");
+        setTitle("Pengembaliaan");
         setSize(560, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

@@ -16,4 +16,4 @@ public interface DAOImTambah {
     List<dataBuku> getALL();
 }
 
-//buat coba commit hapus aja ntar, harus diedit soalnya
+//buat coba commit hapus aja ntar, harus diedit soalnyaaa

@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import main.menu;
 /**
  *
  * @author ASUS
@@ -21,8 +22,7 @@ public class Kembali extends JFrame{
     }
     
     private JTextField nama, nomor,judul, penerbit, penulis, tahun, kategori;
-    private JButton simpan;
-    private JButton pinjam, kembali, tambah;
+    private JButton simpan,kembali;
     private void initComponents() {
         JPanel leftPanel = new JPanel(new BorderLayout());
         tabelDataBuku = new JTable();
@@ -73,16 +73,26 @@ public class Kembali extends JFrame{
         Panel.add(new JLabel("Kategori"));
         kategori = new JTextField(20);
         Panel.add(kategori);
-        
-        simpan = new JButton("Simpan");
-        Panel.add(simpan);
         rightPanel.add(Panel);
+        
+        JPanel jPanel = new JPanel(new GridLayout(5, 1, 5, 5));
+        simpan = new JButton("Simpan");
+        jPanel.add(simpan);
+        kembali = new JButton("Kembali");
+        jPanel.add(kembali);
+        rightPanel.add(jPanel);
         
         simpan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 delete();
                 create();
+            }
+        });
+        kembali.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                kembali();
             }
         });
         
@@ -104,11 +114,14 @@ public class Kembali extends JFrame{
         dk.hapus();
         dk.isitable();
     }
+    private void kembali() {
+        JFrame menu = new menu();
+        menu.setVisible(true);
+        this.dispose();
+    }
     
     private void tabelDataBukuMouseClicked(java.awt.event.ActionEvent evt){
         int baris = tabelDataBuku.getSelectedRow();
-        nama.setText(tabelDataBuku.getValueAt(baris,0).toString());
-        nomor.setText(tabelDataBuku.getValueAt(baris,1).toString());
         judul.setText(tabelDataBuku.getValueAt(baris,2).toString());
         penerbit.setText(tabelDataBuku.getValueAt(baris,3).toString());
         penulis.setText(tabelDataBuku.getValueAt(baris,4).toString());
